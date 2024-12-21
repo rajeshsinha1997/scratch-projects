@@ -27,4 +27,24 @@ public class ApiUtil {
         // Return the ApiResponse object
         return apiResponse;
     }
+
+    /**
+     * generateUUID method is used to generate a UUID.
+     * 
+     * @return UUID as a string
+     */
+    public static String generateUUID() {
+        // Return the generated UUID as a string
+        return java.util.UUID.randomUUID().toString();
+    }
+
+    /**
+     * getCurrentDateTime method is used to get the current date and time.
+     * 
+     * @return
+     */
+    public static String getCurrentDateTime() {
+        // Return the current date and time as a string
+        return java.time.LocalDateTime.now().toString();
+    }
 }

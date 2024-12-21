@@ -11,7 +11,7 @@ import com.rajesh.model.core.Task;
  */
 public class TaskDAO {
     // In-memory data-store to store the task objects.
-    private static final Map<Integer, Task> tasks = new HashMap<>();
+    private static final Map<String, Task> tasks = new HashMap<>();
 
     /**
      * Get all the tasks from the data-store.

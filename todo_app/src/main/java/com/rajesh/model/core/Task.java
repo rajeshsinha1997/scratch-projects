@@ -5,7 +5,7 @@ package com.rajesh.model.core;
  */
 public class Task {
     // id of the task object
-    private int taskId;
+    private String taskId;
     // title of the task object
     private String taskTitle;
     // description of the task object
@@ -22,7 +22,7 @@ public class Task {
      * 
      * @return id of the task object
      */
-    public int getTaskId() {
+    public String getTaskId() {
         return taskId;
     }
 
@@ -31,7 +31,7 @@ public class Task {
      * 
      * @param taskId id of the task object
      */
-    public void setTaskId(int taskId) {
+    public void setTaskId(String taskId) {
         this.taskId = taskId;
     }
 

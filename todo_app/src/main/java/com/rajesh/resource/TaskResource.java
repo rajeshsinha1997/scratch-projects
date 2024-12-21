@@ -1,9 +1,6 @@
 package com.rajesh.resource;
 
-import java.util.List;
-
-import com.rajesh.exception.InvalidTaskException;
-import com.rajesh.model.core.Task;
+import com.rajesh.dto.CreateTaskRequestDTO;
 import com.rajesh.service.TaskService;
 import com.rajesh.util.ApiUtil;
 
@@ -33,20 +30,10 @@ public class TaskResource {
      * @return Response object
      */
     public Response getAllTasks() {
-        // get all available tasks as a list
-        List<Task> tasks = taskService.getAllTasks();
-
-        // check if retrieved list is not empty
-        if (tasks.size() > 0) {
-            // return response with status code 200 and list of tasks
-            return Response.ok(ApiUtil.buildApiResponse(Response.Status.OK.getStatusCode(), null, tasks)).build();
-        } else {
-            // return response with status code 404 and error message
-            return Response
-                    .status(Response.Status.NOT_FOUND).entity(ApiUtil
-                            .buildApiResponse(Response.Status.NOT_FOUND.getStatusCode(), "no task object found", null))
-                    .build();
-        }
+        // return response with status code 200 and list of tasks
+        return Response
+                .ok(ApiUtil.buildApiResponse(Response.Status.OK.getStatusCode(), null, taskService.getAllTasks()))
+                .build();
     }
 
     @POST
@@ -56,18 +43,12 @@ public class TaskResource {
      * @param task Task object to be added
      * @return Response object
      */
-    public Response addTask(Task task) {
-        try {
-            // add task to the list and return response with status code 201
-            return Response
-                    .status(Response.Status.CREATED).entity(ApiUtil
-                            .buildApiResponse(Response.Status.CREATED.getStatusCode(), null, taskService.addTask(task)))
-                    .build();
-        } catch (InvalidTaskException e) {
-            // return response with status code 400 and error message
-            return Response.status(Response.Status.BAD_REQUEST).entity(ApiUtil
-                    .buildApiResponse(Response.Status.BAD_REQUEST.getStatusCode(), e.getLocalizedMessage(), null))
-                    .build();
-        }
+    public Response addTask(CreateTaskRequestDTO taskToBeCreated) {
+        // add task to the list and return response with status code 201
+        return Response
+                .status(Response.Status.CREATED).entity(ApiUtil
+                        .buildApiResponse(Response.Status.CREATED.getStatusCode(), null,
+                                taskService.addTask(taskToBeCreated)))
+                .build();
     }
 }
