@@ -1,6 +1,6 @@
 package com.rajesh.resource;
 
-import com.rajesh.dto.CreateTaskRequestDTO;
+import com.rajesh.dto.request.CreateTaskRequestDTO;
 import com.rajesh.service.TaskService;
 import com.rajesh.util.ApiUtil;
 

@@ -1,4 +1,4 @@
-package com.rajesh.model.core;
+package com.rajesh.model;
 
 /**
  * Task class is a model class that represents a task entity.

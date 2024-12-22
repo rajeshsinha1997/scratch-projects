@@ -1,16 +1,34 @@
-package com.rajesh.dto;
+package com.rajesh.dto.response;
+
+import jakarta.json.bind.annotation.JsonbProperty;
 
 /**
  * TaskResponseDTO class is a data transfer object class that is used to send
  * task data to the client.
  */
 public class TaskResponseDTO {
-    // attributes of the data transfer object
+    @JsonbProperty("task_id")
+    // id of the task
     private String taskId;
+
+    @JsonbProperty("task_title")
+    // title of the task
     private String taskTitle;
+
+    @JsonbProperty("task_description")
+    // description of the task
     private String taskDescription;
+
+    @JsonbProperty("task_completed")
+    // completion status of the task
     private boolean taskCompleted;
+
+    @JsonbProperty("task_created_on")
+    // creation date and time of the task
     private String taskCreatedOn;
+
+    @JsonbProperty("task_updated_on")
+    // last updated date and time of the task
     private String taskUpdatedOn;
 
     /**
@@ -104,18 +122,18 @@ public class TaskResponseDTO {
     }
 
     /**
-     * Get the task updated date and time
+     * Get the task last updated date and time
      * 
-     * @return task updated date and time as a string
+     * @return task last updated date and time as a string
      */
     public String getTaskUpdatedOn() {
         return taskUpdatedOn;
     }
 
     /**
-     * Set the task updated date and time
+     * Set the task last updated date and time
      * 
-     * @param taskUpdatedOn task updated date and time to set
+     * @param taskUpdatedOn task last updated date and time to set
      */
     public void setTaskUpdatedOn(String taskUpdatedOn) {
         this.taskUpdatedOn = taskUpdatedOn;

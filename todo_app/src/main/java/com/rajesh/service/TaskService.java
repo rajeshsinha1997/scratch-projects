@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rajesh.dao.TaskDAO;
-import com.rajesh.dto.CreateTaskRequestDTO;
-import com.rajesh.dto.TaskResponseDTO;
-import com.rajesh.model.core.Task;
+import com.rajesh.dto.request.CreateTaskRequestDTO;
+import com.rajesh.dto.response.TaskResponseDTO;
+import com.rajesh.model.Task;
 import com.rajesh.util.ApiUtil;
 import com.rajesh.util.ValidationUtil;
 

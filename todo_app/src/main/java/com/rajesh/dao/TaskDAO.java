@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.rajesh.model.core.Task;
+import com.rajesh.model.Task;
 
 /**
  * DAO class to interact with the data-store for Task entity.

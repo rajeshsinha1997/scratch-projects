@@ -1,6 +1,6 @@
 package com.rajesh.util;
 
-import com.rajesh.model.api.ApiResponse;
+import com.rajesh.dto.response.ApiResponseDTO;
 
 /**
  * ApiUtil class is a utility class to build the API related utility services.
@@ -12,19 +12,19 @@ public class ApiUtil {
      * @param apiResponseStatusCode status code of the API response
      * @param apiResponseMessage    message of the API response
      * @param apiResponseData       data of the API response
-     * @return ApiResponse object
+     * @return instance of ApiResponseDTO
      */
-    public static ApiResponse buildApiResponse(int apiResponseStatusCode, String apiResponseMessage,
+    public static ApiResponseDTO buildApiResponse(int apiResponseStatusCode, String apiResponseMessage,
             Object apiResponseData) {
-        // Create the ApiResponse object
-        ApiResponse apiResponse = new ApiResponse();
+        // Create the ApiResponseDTO object
+        ApiResponseDTO apiResponse = new ApiResponseDTO();
 
-        // Set the ApiResponse object properties
+        // Set the values to the ApiResponseDTO object
         apiResponse.setApiResponseStatusCode(apiResponseStatusCode);
         apiResponse.setApiResponseMessage(apiResponseMessage);
         apiResponse.setApiResponseData(apiResponseData);
 
-        // Return the ApiResponse object
+        // Return the ApiResponseDTO object
         return apiResponse;
     }
 

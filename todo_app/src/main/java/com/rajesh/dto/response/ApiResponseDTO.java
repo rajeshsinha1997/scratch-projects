@@ -1,14 +1,21 @@
-package com.rajesh.model.api;
+package com.rajesh.dto.response;
+
+import jakarta.json.bind.annotation.JsonbProperty;
 
 /**
  * ApiResponse class is a model class which is used to send the response to the
  * client. It contains the status code, message and data.
  */
-public class ApiResponse {
+public class ApiResponseDTO {
+    @JsonbProperty("response_status_code")
     // Status code of the response
     private int apiResponseStatusCode;
+
+    @JsonbProperty("response_message")
     // Message of the response
     private String apiResponseMessage;
+
+    @JsonbProperty("response_data")
     // Data of the response
     private Object apiResponseData;
 

@@ -1,12 +1,17 @@
-package com.rajesh.dto;
+package com.rajesh.dto.request;
+
+import jakarta.json.bind.annotation.JsonbProperty;
 
 /**
  * CreateTaskRequestDTO class is a data transfer object class that represents an
  * object received in the POST request body to create a new task.
  */
 public class CreateTaskRequestDTO {
+    @JsonbProperty("task_title")
     // title of the task object to be created
     private String taskTitle;
+
+    @JsonbProperty("task_description")
     // description of the task object to be created
     private String taskDescription;
 
