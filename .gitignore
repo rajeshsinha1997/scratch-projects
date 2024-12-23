@@ -1,3 +1,11 @@
 .vscode
+.DS_Store
+node_modules
+dist
+coverage
+.env
 
 */target
+*/.idea
+*/.gradle
+*/build

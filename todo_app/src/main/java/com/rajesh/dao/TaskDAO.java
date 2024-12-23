@@ -26,6 +26,17 @@ public class TaskDAO {
     /**
      * Get a task by its id.
      * 
+     * @param taskId Id of the task to be fetched.
+     * @return Task object if found, null otherwise.
+     */
+    public Task getTaskById(String taskId) {
+        // Get the task from the data-store using the given id.
+        return TaskDAO.tasks.get(taskId);
+    }
+
+    /**
+     * Get a task by its id.
+     * 
      * @param task task object which contains the given id.
      */
     public void addTask(Task task) {

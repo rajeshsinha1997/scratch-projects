@@ -41,6 +41,25 @@ public class TaskService {
     }
 
     /**
+     * Method to get a task by its id
+     * 
+     * @param taskId id of the task to be fetched
+     * @return task object if found, null otherwise
+     */
+    public TaskResponseDTO getTaskById(String taskId) {
+        // call DAO method to get the task object by its id
+        Task task = taskDAO.getTaskById(taskId);
+
+        // if task is not found, return null
+        if (task == null) {
+            return null;
+        }
+
+        // create a TaskResponseDTO object from the Task object and return it
+        return createTaskResponseDTOFromTask(task);
+    }
+
+    /**
      * Method to add a task
      * 
      * @param taskToBeCreated task object to add
@@ -57,12 +76,17 @@ public class TaskService {
         Task newTask = new Task();
 
         // set the task object properties
-        newTask.setTaskId(ApiUtil.generateUUID());
         newTask.setTaskTitle(taskToBeCreated.getTaskTitle());
         newTask.setTaskDescription(taskToBeCreated.getTaskDescription());
         newTask.setTaskCompleted(false);
         newTask.setTaskCreatedOn(ApiUtil.getCurrentDateTime());
         newTask.setTaskUpdatedOn(ApiUtil.getCurrentDateTime());
+
+        // check if the generated task id already exists, if yes, generate a new task id
+        do {
+            // generate a new task id
+            newTask.setTaskId(ApiUtil.generateUUID());
+        } while (taskDAO.getTaskById(newTask.getTaskId()) != null);
 
         // call DAO method to add the received task object to the data-store
         taskDAO.addTask(newTask);
