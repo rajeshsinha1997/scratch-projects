@@ -19,8 +19,8 @@ public class TaskDAO {
      * @return List of tasks.
      */
     public List<Task> getAllTasks() {
-        // Convert the map values to list and return.
-        return TaskDAO.tasks.values().stream().toList();
+        // Filter out the tasks which are not deleted and return the list.
+        return TaskDAO.tasks.values().stream().filter(task -> !task.isTaskDeleted()).toList();
     }
 
     /**
@@ -31,7 +31,16 @@ public class TaskDAO {
      */
     public Task getTaskById(String taskId) {
         // Get the task from the data-store using the given id.
-        return TaskDAO.tasks.get(taskId);
+        Task task = TaskDAO.tasks.get(taskId);
+
+        // Check if the task is not null and not deleted.
+        if (task != null && !task.isTaskDeleted()) {
+            // Return the task.
+            return task;
+        }
+
+        // Return null if the task is not found or deleted.
+        return null;
     }
 
     /**
@@ -42,5 +51,25 @@ public class TaskDAO {
     public void addTask(Task task) {
         // Add the task to the data-store.
         TaskDAO.tasks.put(task.getTaskId(), task);
+    }
+
+    /**
+     * Delete a task by its id.
+     * 
+     * @param taskId Id of the task to be deleted.
+     * @return Deleted task object if found, null otherwise.
+     */
+    public Task deleteTaskById(String taskId) {
+        // Get the task from the data-store using the given id.
+        Task task = getTaskById(taskId);
+
+        // Check if the retrieved task is not null.
+        if (task != null) {
+            // Mark the task as deleted.
+            task.setTaskDeleted(true);
+        }
+
+        // Return the task.
+        return task;
     }
 }

@@ -79,6 +79,7 @@ public class TaskService {
         newTask.setTaskTitle(taskToBeCreated.getTaskTitle());
         newTask.setTaskDescription(taskToBeCreated.getTaskDescription());
         newTask.setTaskCompleted(false);
+        newTask.setTaskDeleted(false);
         newTask.setTaskCreatedOn(ApiUtil.getCurrentDateTime());
         newTask.setTaskUpdatedOn(ApiUtil.getCurrentDateTime());
 
@@ -93,6 +94,26 @@ public class TaskService {
 
         // return the added task object
         return createTaskResponseDTOFromTask(newTask);
+    }
+
+    /**
+     * Method to delete a task by its id
+     * 
+     * @param taskId id of the task to be deleted
+     * @return deleted task object if found, null otherwise
+     */
+    public TaskResponseDTO deleteTaskById(String taskId) {
+        // call DAO method to delete the task object by its id
+        Task deletedTask = taskDAO.deleteTaskById(taskId);
+
+        // check if the deleted task object is null
+        if (deletedTask == null) {
+            // return null if the deleted task object is null
+            return null;
+        } else {
+            // return the deleted task object
+            return createTaskResponseDTOFromTask(deletedTask);
+        }
     }
 
     /**

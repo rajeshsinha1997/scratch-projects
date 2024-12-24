@@ -12,6 +12,8 @@ public class Task {
     private String taskDescription;
     // status of the task object whether it is completed or not
     private boolean isTaskCompleted;
+    // status of the task object whether it is deleted or not
+    private boolean isTaskDeleted;
     // the date on which the task object is created
     private String taskCreatedOn;
     // the date on which the task object is last updated
@@ -123,6 +125,24 @@ public class Task {
      */
     public void setTaskUpdatedOn(String taskUpdatedOn) {
         this.taskUpdatedOn = taskUpdatedOn;
+    }
+
+    /**
+     * Get the status of the task object whether it is deleted or not
+     * 
+     * @return status of the task object whether it is deleted or not
+     */
+    public boolean isTaskDeleted() {
+        return isTaskDeleted;
+    }
+
+    /**
+     * Set the status of the task object whether it is deleted or not
+     * 
+     * @param isTaskDeleted status of the task object whether it is deleted or not
+     */
+    public void setTaskDeleted(boolean isTaskDeleted) {
+        this.isTaskDeleted = isTaskDeleted;
     }
 
 }
