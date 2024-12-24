@@ -319,7 +319,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/todo_app/api/tasks/2ddc1ce4-8153-4577-a41b-10c405c66662",
+					"raw": "http://localhost:8080/todo_app/api/tasks/bc75a23e-6216-4423-9308-bf041c11555b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -329,7 +329,7 @@
 						"todo_app",
 						"api",
 						"tasks",
-						"2ddc1ce4-8153-4577-a41b-10c405c66662"
+						"bc75a23e-6216-4423-9308-bf041c11555b"
 					]
 				}
 			},
@@ -473,6 +473,169 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"response_message\": \"NO TASK EXISTS WITH ID: 2ddc1ce4-8153-4577-a41b-10c405c66661\",\n    \"response_status_code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE TASK BY ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/todo_app/api/tasks/bc75a23e-6216-4423-9308-bf041c11555b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todo_app",
+						"api",
+						"tasks",
+						"bc75a23e-6216-4423-9308-bf041c11555b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESSFULLY DELETED TASK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/todo_app/api/tasks/2bcf9e90-3667-4078-be51-787324ebe6eb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo_app",
+								"api",
+								"tasks",
+								"2bcf9e90-3667-4078-be51-787324ebe6eb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "276"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 24 Dec 2024 08:29:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response_data\": {\n        \"task_completed\": false,\n        \"task_created_on\": \"2024-12-24T13:59:46.648608\",\n        \"task_description\": \"test description\",\n        \"task_id\": \"2bcf9e90-3667-4078-be51-787324ebe6eb\",\n        \"task_title\": \"test title\",\n        \"task_updated_on\": \"2024-12-24T13:59:46.648635\"\n    },\n    \"response_status_code\": 200\n}"
+				},
+				{
+					"name": "NO TASK EXISTS WITH GIVEN ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/todo_app/api/tasks/2bcf9e90-3667-4078-be51-787324ebe6eb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo_app",
+								"api",
+								"tasks",
+								"2bcf9e90-3667-4078-be51-787324ebe6eb"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 24 Dec 2024 08:30:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response_message\": \"NO TASK EXISTS WITH ID: 2bcf9e90-3667-4078-be51-787324ebe6eb\",\n    \"response_status_code\": 404\n}"
+				},
+				{
+					"name": "INVALID TASK ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/todo_app/api/tasks/ ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo_app",
+								"api",
+								"tasks",
+								" "
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 24 Dec 2024 08:30:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response_message\": \"TASK ID CANNOT BE EMPTY\",\n    \"response_status_code\": 400\n}"
 				}
 			]
 		}
